@@ -114,7 +114,7 @@
                                 <div class="spacer-20"></div>
                                 <ul class="list_location wow fadeInUp" data-wow-delay=".8s">
                                     <li><span>Address</span>Dhaka, nikunja 2, Khilkhet</li>
-                                    <li><span>Number</span>01905667893</li>
+                                    <li><span>Number</span>01650129458</li>
                                     <li><span>Email</span>santo.cse.fp@gmail.com</li>
                                 </ul>
                             </div>
@@ -245,10 +245,12 @@
                         </div>
 
                         <div class="col-md-8 offset-md-2  wow fadeInUp">
-                            <p class="experience-details-text">I am a highly skilled web developer with over 1 year of official experience in HTML,
+                            <p class="experience-details-text">I am a highly skilled web developer with over 1 year of
+                                official experience in HTML,
                                 CSS, JavaScript, and React. I have knowledge of popular frameworks such as React,
                                 and Node and experience with REST APIs, Express Js, Node and Mongodb</p>
-                            <p class="experience-details-text">Designed and developed dynamic and responsive websites using HTML, CSS,
+                            <p class="experience-details-text">Designed and developed dynamic and responsive websites
+                                using HTML, CSS,
                                 SCSS, JavaScript, Bootstrap, plugins and React Worked with REST APIs to
                                 retrieve and display data from databases
                                 I have contributed to multiple complete projects including Live Shopify theme
@@ -279,8 +281,16 @@
                         </div>
 
                         <div class="col-md-8 offset-md-2 wow fadeInUp">
-                            <p class="experience-details-text">Designed and developed dynamic and responsive websites using React, JavaScript, and Webflow for full-stack web development.Implemented high-quality animations using GSAP to enhance user experience and interactivity. Worked on multiple live projects, ensuring high-quality performance and user-friendly interfaces.</p>
-                            <p class="experience-details-text">Built and maintained scalable web applications, integrating APIs and optimizing frontend performance.Collaborated with cross-functional teams to meet project requirements and deliver seamless web solutions.Adapted to emerging technologies, managed complex development tasks, and consistently delivered high-quality results on live platforms.
+                            <p class="experience-details-text">Designed and developed dynamic and responsive websites
+                                using React, JavaScript, and Webflow for full-stack web development.Implemented
+                                high-quality animations using GSAP to enhance user experience and interactivity. Worked
+                                on multiple live projects, ensuring high-quality performance and user-friendly
+                                interfaces.</p>
+                            <p class="experience-details-text">Built and maintained scalable web applications,
+                                integrating APIs and optimizing frontend performance.Collaborated with cross-functional
+                                teams to meet project requirements and deliver seamless web solutions.Adapted to
+                                emerging technologies, managed complex development tasks, and consistently delivered
+                                high-quality results on live platforms.
                             </p>
                         </div>
                         <div class="spacer-single"></div>
@@ -645,7 +655,9 @@
                         </div>
                         <div class="col-lg-8 offset-lg-2 wow fadeInUp">
                             <div class="contact_form_wrapper">
-                                <form name="contactForm" id="contact_form" class="form-border" method="post" action="#">
+                                <form name="contactForm" id="contact_form" class="form-border"
+                                    action="https://api.web3forms.com/submit" method="POST">
+                                    <input type="hidden" name="access_key" value="f3f1ae41-88a1-4b1b-8b70-57be72218571">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="field-set">
@@ -671,7 +683,7 @@
                                             <textarea name="message" id="message" class="form-control"
                                                 placeholder="Your Message" required></textarea>
                                         </div>
-                                        <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div>
+                                        <!-- <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div> -->
                                         <div id='submit' class="mt10">
                                             <input type='submit' id='send_message' value='Send Message'
                                                 class="btn-main">
@@ -684,7 +696,6 @@
                                         <div id="error_message" class='error'>
                                             Sorry there was an error sending your form.
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
@@ -747,6 +758,25 @@
     <script>
         jQuery(function ($) {
             $('.g-recaptcha').attr('data-theme', 'dark');
+        });
+        const form = document.getElementById('contact_form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+
+            if (response.ok) {
+                alert("✅ Message sent successfully!");
+                form.reset();
+            } else {
+                alert("❌ Something went wrong. Please try again.");
+            }
         });
     </script>
     <script>
